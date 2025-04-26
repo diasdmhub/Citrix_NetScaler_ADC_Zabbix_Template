@@ -1,5 +1,7 @@
 # SNMP Tables
 
+> [**From Citrix NetScaler SNMP reference**](https://developer-docs.netscaler.com/en-us/adc-snmp-oid-reference)
+
 ### System
 
 > **`system` - `1.3.6.1.2.1.1` - This provides standard SNMP MIB-2 information about the system.**
