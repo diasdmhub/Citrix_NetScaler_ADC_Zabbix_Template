@@ -34,7 +34,7 @@ For more flexibility, there are two independent templates that include two monit
 
 > ⚠️ **This template has been customized for a specific production environment and stripped down for this publication. It may not meet the needs of other environments. It is recommended to customize the template to meet your specific needs. Feedback is welcome.**
 
-Tested on Citrix (ADC) NetScaler `VPX` and `SDX` devices with version `13.1`.
+Tested on Citrix (ADC) NetScaler `VPX` and `SDX` devices with version `13.1` and `14.1`.
 
 - [Citrix NetScaler SNMP reference][snmpref]
 
