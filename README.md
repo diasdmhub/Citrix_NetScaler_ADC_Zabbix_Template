@@ -55,9 +55,13 @@ Tested on Citrix (ADC) NetScaler `VPX` and `SDX` devices with version `13.1`.
 
 Depending on the size of the environment, a Zabbix network discovery can help to add the load balancer hosts. Zabbix discovery rules are based on network ranges or IPs and can be executed on a schedule. For example, a network discovery can query SNMP objects on the active NetScaler IP range for scpecifc data. A discovery action then checks the discovery rule data and looks for the values received. If the  data matches the conditions, an operation is performed to automatically include the host. The host name can be the SNMP received value, DNS name, or IP, depending on how you configure your discovery rule. In addition, the above templates can be linked to the host to enable monitoring.
 
+![many items](/image/net_discovery_rule_60.png)
+
 > ℹ️ **Despite this initial host configuration, it is recommended to update the host information with a clear description so that it can be easily identified. It is also recommended that you populate the inventory data.**
 
 > ⚠️ **Care should be taken when adding many hosts to Zabbix at once. If the environment is large enough, NetScaler services can easily impact on Zabbix processes, especially if the environment is not well optimized. If there are many hosts, a dedicated proxy can help to alleviate the load.**
+
+![many items](/image/proxy_vps.png)
 
 <BR>
 
