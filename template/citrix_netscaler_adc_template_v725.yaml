@@ -5,8 +5,8 @@ zabbix_export:
       name: 'Templates/Network devices'
   templates:
     - uuid: 127dca4e9a994284900fb19dd771a004
-      template: 'BB Citrix NetScaler ADC by SNMP'
-      name: 'BB Citrix NetScaler ADC by SNMP'
+      template: 'Citrix NetScaler ADC by SNMP'
+      name: 'Citrix NetScaler ADC by SNMP'
       description: |
         Focus on general NetScaler passive monitoring using SNMP
         
@@ -259,9 +259,9 @@ zabbix_export:
               value: utilization
           triggers:
             - uuid: 1618740a54ac4964b4e16a0bb7d6a2af
-              expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)>={$NS.SYS.CPU.CRIT}'
+              expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)>={$NS.SYS.CPU.CRIT}'
               recovery_mode: RECOVERY_EXPRESSION
-              recovery_expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)<{$NS.SYS.CPU.CRIT}-1'
+              recovery_expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)<{$NS.SYS.CPU.CRIT}-1'
               name: 'CPU Utilization Critical'
               event_name: 'CPU Utilization Critical - Greater than {$NS.SYS.CPU.CRIT}'
               opdata: 'Current CPU Utilization: {ITEM.LASTVALUE}'
@@ -271,9 +271,9 @@ zabbix_export:
                 - tag: Utilization
                   value: critical
             - uuid: a3418dfecc634640ad5f9a7d53605e58
-              expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)>={$NS.SYS.CPU.WARN}'
+              expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)>={$NS.SYS.CPU.WARN}'
               recovery_mode: RECOVERY_EXPRESSION
-              recovery_expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)<{$NS.SYS.CPU.WARN}-1'
+              recovery_expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)<{$NS.SYS.CPU.WARN}-1'
               name: 'CPU Utilization High'
               event_name: 'CPU Utilization High - Greater than {$NS.SYS.CPU.WARN}'
               opdata: 'Current CPU Utilization: {ITEM.LASTVALUE}'
@@ -281,8 +281,8 @@ zabbix_export:
               description: 'This trigger indicates that the CPU utilization is high for the last 5 checks'
               dependencies:
                 - name: 'CPU Utilization Critical'
-                  expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)>={$NS.SYS.CPU.CRIT}'
-                  recovery_expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)<{$NS.SYS.CPU.CRIT}-1'
+                  expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)>={$NS.SYS.CPU.CRIT}'
+                  recovery_expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resCpuUsage,#5)<{$NS.SYS.CPU.CRIT}-1'
               tags:
                 - tag: Utilization
                   value: high
@@ -304,9 +304,9 @@ zabbix_export:
               value: utilization
           triggers:
             - uuid: 1674d06a722a42aaa2fa5609b93ae57a
-              expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)>={$NS.SYS.MEM.CRIT}'
+              expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)>={$NS.SYS.MEM.CRIT}'
               recovery_mode: RECOVERY_EXPRESSION
-              recovery_expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)<{$NS.SYS.MEM.CRIT}-1'
+              recovery_expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)<{$NS.SYS.MEM.CRIT}-1'
               name: 'Memory Utilization Critical'
               event_name: 'Memory Utilization Critical - Greater than {$NS.SYS.MEM.CRIT}'
               opdata: 'Current Memory Utilization: {ITEM.LASTVALUE}'
@@ -316,9 +316,9 @@ zabbix_export:
                 - tag: Utilization
                   value: critical
             - uuid: 0338fd66512249308cfd8252c24ce53c
-              expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)>={$NS.SYS.MEM.WARN}'
+              expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)>={$NS.SYS.MEM.WARN}'
               recovery_mode: RECOVERY_EXPRESSION
-              recovery_expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)<{$NS.SYS.MEM.WARN}-1'
+              recovery_expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)<{$NS.SYS.MEM.WARN}-1'
               name: 'Memory Utilization High'
               event_name: 'Memory Utilization High - Greater than {$NS.SYS.MEM.WARN}'
               opdata: 'Current Memory Utilization: {ITEM.LASTVALUE}'
@@ -326,8 +326,8 @@ zabbix_export:
               description: 'This trigger indicates that the memory utilization is high for the last 5 checks'
               dependencies:
                 - name: 'Memory Utilization Critical'
-                  expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)>={$NS.SYS.MEM.CRIT}'
-                  recovery_expression: 'avg(/BB Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)<{$NS.SYS.MEM.CRIT}-1'
+                  expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)>={$NS.SYS.MEM.CRIT}'
+                  recovery_expression: 'avg(/Citrix NetScaler ADC by SNMP/netscaler.resMemUsage,#5)<{$NS.SYS.MEM.CRIT}-1'
               tags:
                 - tag: Utilization
                   value: high
@@ -430,7 +430,7 @@ zabbix_export:
               value: mode
           triggers:
             - uuid: 5426d3b7249a481aa7af09449d2babe1
-              expression: 'change(/BB Citrix NetScaler ADC by SNMP/netscaler.sysHighAvailabilityMode)=1'
+              expression: 'change(/Citrix NetScaler ADC by SNMP/netscaler.sysHighAvailabilityMode)=1'
               name: 'HA Mode Changed'
               event_name: 'HA Mode Changed to {ITEM.VALUE}'
               opdata: 'Current mode: {ITEM.LASTVALUE} - Changed at: {?last(//netscaler.haTimeofLastStateTransition)}'
@@ -537,9 +537,9 @@ zabbix_export:
           triggers:
             - uuid: 66f602a9698f4b2785c930e6f7d620d4
               expression: |
-                last(/BB Citrix NetScaler ADC by SNMP/netscaler.sysUpTime)>0
+                last(/Citrix NetScaler ADC by SNMP/netscaler.sysUpTime)>0
                 and
-                last(/BB Citrix NetScaler ADC by SNMP/netscaler.sysUpTime)<10m
+                last(/Citrix NetScaler ADC by SNMP/netscaler.sysUpTime)<10m
               name: 'Host has been restarted'
               event_name: 'Host has been restarted (uptime less than 10m)'
               opdata: 'Up for: {ITEM.LASTVALUE}'
@@ -547,7 +547,7 @@ zabbix_export:
               description: 'The host uptime is less than 10 minutes'
               dependencies:
                 - name: 'No SNMP data collection'
-                  expression: 'max(/BB Citrix NetScaler ADC by SNMP/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
+                  expression: 'max(/Citrix NetScaler ADC by SNMP/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
               tags:
                 - tag: Uptime
                   value: low
@@ -668,7 +668,7 @@ zabbix_export:
               value: SNMP
           triggers:
             - uuid: 0e5e89114dd54db58bcc952c5640df0e
-              expression: 'max(/BB Citrix NetScaler ADC by SNMP/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
+              expression: 'max(/Citrix NetScaler ADC by SNMP/zabbix[host,snmp,available],{$SNMP.TIMEOUT})=0'
               name: 'No SNMP data collection'
               event_name: 'No SNMP data collection for the last {$SNMP.TIMEOUT}'
               opdata: 'Current state: {ITEM.LASTVALUE}'
@@ -889,12 +889,12 @@ zabbix_export:
                   expression: |
                     {$NS.IF.CONTROL:"{#NS.IF.NAME}"}=1
                     and
-                    last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])=2
+                    last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])=2
                     and
-                    change(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])>=1
+                    change(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])>=1
                   recovery_mode: RECOVERY_EXPRESSION
                   recovery_expression: |
-                    last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])<>2
+                    last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])<>2
                     or
                     {$NS.IF.CONTROL:"{#NS.IF.NAME}"}=0
                   name: 'Interface {#NS.IF.NAME}({#NS.IF.ALIAS}) - Link down'
@@ -969,29 +969,29 @@ zabbix_export:
             - uuid: 6e2b04f4875540919f8338882ab64f24
               expression: |
                 (
-                  avg(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHCInOctets[{#NS.IF.NAME}],15m)
+                  avg(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHCInOctets[{#NS.IF.NAME}],15m)
                   >
-                  last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
+                  last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
                   *
                   (
                     {$NS.IF.UTIL.MAX:"{#NS.IF.NAME}"}/100
                   )
                   or
-                  avg(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHCOutOctets[{#NS.IF.NAME}],15m)
+                  avg(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHCOutOctets[{#NS.IF.NAME}],15m)
                   >
-                  last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
+                  last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
                   *
                   (
                     {$NS.IF.UTIL.MAX:"{#NS.IF.NAME}"}/100
                   )
                 )
                 and
-                last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])>0
+                last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])>0
               recovery_mode: RECOVERY_EXPRESSION
               recovery_expression: |
-                avg(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHCInOctets[{#NS.IF.NAME}],15m)
+                avg(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHCInOctets[{#NS.IF.NAME}],15m)
                 <
-                last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
+                last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
                 *
                 (
                   (
@@ -1000,9 +1000,9 @@ zabbix_export:
                   /100
                 )
                 and
-                avg(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHCOutOctets[{#NS.IF.NAME}],15m)
+                avg(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHCOutOctets[{#NS.IF.NAME}],15m)
                 <
-                last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
+                last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifHighSpeed[{#NS.IF.NAME}])
                 *
                 (
                   (
@@ -1020,11 +1020,11 @@ zabbix_export:
                   expression: |
                     {$NS.IF.CONTROL:"{#NS.IF.NAME}"}=1
                     and
-                    last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])=2
+                    last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])=2
                     and
-                    change(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])>=1
+                    change(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])>=1
                   recovery_expression: |
-                    last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])<>2
+                    last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])<>2
                     or
                     {$NS.IF.CONTROL:"{#NS.IF.NAME}"}=0
               tags:
@@ -1032,20 +1032,20 @@ zabbix_export:
                   value: high
             - uuid: 5a5a0dea1cb94674bb7dfc3156ab04fe
               expression: |
-                min(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifInErrors[{#NS.IF.NAME}],5m)
+                min(/Citrix NetScaler ADC by SNMP/netscaler.if.ifInErrors[{#NS.IF.NAME}],5m)
                 >
                 {$NS.IF.ERROR.WARN:"{#NS.IF.NAME}"}
                 or
-                min(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOutErrors[{#NS.IF.NAME}],5m)
+                min(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOutErrors[{#NS.IF.NAME}],5m)
                 >
                 {$NS.IF.ERROR.WARN:"{#NS.IF.NAME}"}
               recovery_mode: RECOVERY_EXPRESSION
               recovery_expression: |
-                max(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifInErrors[{#NS.IF.NAME}],5m)
+                max(/Citrix NetScaler ADC by SNMP/netscaler.if.ifInErrors[{#NS.IF.NAME}],5m)
                 <=
                 {$NS.IF.ERROR.WARN:"{#NS.IF.NAME}"}*0.8
                 and
-                max(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOutErrors[{#NS.IF.NAME}],5m)
+                max(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOutErrors[{#NS.IF.NAME}],5m)
                 <=
                 {$NS.IF.ERROR.WARN:"{#NS.IF.NAME}"}*0.8
               name: 'Interface {#NS.IF.NAME}({#NS.IF.ALIAS}) - High error rate'
@@ -1061,11 +1061,11 @@ zabbix_export:
                   expression: |
                     {$NS.IF.CONTROL:"{#NS.IF.NAME}"}=1
                     and
-                    last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])=2
+                    last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])=2
                     and
-                    change(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])>=1
+                    change(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])>=1
                   recovery_expression: |
-                    last(/BB Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])<>2
+                    last(/Citrix NetScaler ADC by SNMP/netscaler.if.ifOperStatus[{#NS.IF.NAME}])<>2
                     or
                     {$NS.IF.CONTROL:"{#NS.IF.NAME}"}=0
               tags:
@@ -1218,9 +1218,9 @@ zabbix_export:
                   value: '{#NS.SYS.DISK.NAME}'
               trigger_prototypes:
                 - uuid: 433762267960473cb3325174ed1a51e2
-                  expression: 'min(/BB Citrix NetScaler ADC by SNMP/netscaler.sysHealth.disk.util[{#NS.SYS.DISK.NAME}],#3)>={$NS.SYS.DISK.UTIL.WARN}'
+                  expression: 'min(/Citrix NetScaler ADC by SNMP/netscaler.sysHealth.disk.util[{#NS.SYS.DISK.NAME}],#3)>={$NS.SYS.DISK.UTIL.WARN}'
                   recovery_mode: RECOVERY_EXPRESSION
-                  recovery_expression: 'min(/BB Citrix NetScaler ADC by SNMP/netscaler.sysHealth.disk.util[{#NS.SYS.DISK.NAME}],#3)<={$NS.SYS.DISK.UTIL.WARN}-5'
+                  recovery_expression: 'min(/Citrix NetScaler ADC by SNMP/netscaler.sysHealth.disk.util[{#NS.SYS.DISK.NAME}],#3)<={$NS.SYS.DISK.UTIL.WARN}-5'
                   name: 'High Filesystem Utilization - {#NS.SYS.DISK.NAME}'
                   event_name: 'High Filesystem Utilization for {#NS.SYS.DISK.NAME} greater than {$NS.SYS.DISK.UTIL.WARN}%'
                   opdata: 'Current utilization: {ITEM.LASTVALUE}'
@@ -1349,9 +1349,9 @@ zabbix_export:
                   value: '{#NS.SYS.HEALTH.NAME}'
               trigger_prototypes:
                 - uuid: 33a50f567987450e8312300118477119
-                  expression: 'min(/BB Citrix NetScaler ADC by SNMP/netscaler.sysHealth.temp[{#NS.SYS.HEALTH.NAME}],#3)>{$NS.SYS.TEMP.WARN}'
+                  expression: 'min(/Citrix NetScaler ADC by SNMP/netscaler.sysHealth.temp[{#NS.SYS.HEALTH.NAME}],#3)>{$NS.SYS.TEMP.WARN}'
                   recovery_mode: RECOVERY_EXPRESSION
-                  recovery_expression: 'min(/BB Citrix NetScaler ADC by SNMP/netscaler.sysHealth.temp[{#NS.SYS.HEALTH.NAME}],#3)<={$NS.SYS.TEMP.WARN}-2'
+                  recovery_expression: 'min(/Citrix NetScaler ADC by SNMP/netscaler.sysHealth.temp[{#NS.SYS.HEALTH.NAME}],#3)<={$NS.SYS.TEMP.WARN}-2'
                   name: 'High Temperature for {{#NS.SYS.HEALTH.NAME}.regsub("(.*)[Tt]emperature(\d*)(.*)","- \1 \2 \3")}'
                   opdata: 'Current temp: {ITEM.LASTVALUE}'
                   priority: WARNING
@@ -1594,9 +1594,9 @@ zabbix_export:
               trigger_prototypes:
                 - uuid: e47a68abc1104e1fb4cf31ba88d45286
                   expression: |
-                    trendstl(/BB Citrix NetScaler ADC by SNMP/netscaler.vserver.vsvrEstablishedConn[{#NS.VSERVER.FULL.NAME}],7d:now/h,1h,2h)>=3
+                    trendstl(/Citrix NetScaler ADC by SNMP/netscaler.vserver.vsvrEstablishedConn[{#NS.VSERVER.FULL.NAME}],7d:now/h,1h,2h)>=3
                     and
-                    last(/BB Citrix NetScaler ADC by SNMP/netscaler.vserver.vsvrEstablishedConn[{#NS.VSERVER.FULL.NAME}],#1)>10
+                    last(/Citrix NetScaler ADC by SNMP/netscaler.vserver.vsvrEstablishedConn[{#NS.VSERVER.FULL.NAME}],#1)>10
                   name: '{#NS.VSERVER.FULL.NAME} - vServer Connections Abnormal'
                   event_name: '{#NS.VSERVER.FULL.NAME} - Abnormal Rize in vServer Connections'
                   opdata: 'Current Connections: {ITEM.LASTVALUE}'
@@ -1890,8 +1890,8 @@ zabbix_export:
             - value: '2'
               newvalue: Unknown
     - uuid: 73f6c7dea46e4e5bbda934d8430e8d28
-      template: 'BB Citrix NetScaler ADC Traps by SNMP'
-      name: 'BB Citrix NetScaler ADC Traps by SNMP'
+      template: 'Citrix NetScaler ADC Traps by SNMP'
+      name: 'Citrix NetScaler ADC Traps by SNMP'
       description: |
         Focus on general NetScaler active monitoring using SNMP Traps
         
@@ -2091,7 +2091,7 @@ zabbix_export:
               value: count
           triggers:
             - uuid: 9050b5b5ae004c579ea08c39644142c7
-              expression: 'change(/BB Citrix NetScaler ADC Traps by SNMP/snmptrap[netScalerLoginFailure.count])>0'
+              expression: 'change(/Citrix NetScaler ADC Traps by SNMP/snmptrap[netScalerLoginFailure.count])>0'
               name: 'NetScaler Login Failure'
               event_name: 'NetScaler User "{?jsonpath(last(//snmptrap[1.3.6.1.4.1.5951.1.1.0.55]),"$..nsUserName.first()","N/A")}" Login Failure from  "{?jsonpath(last(//snmptrap[1.3.6.1.4.1.5951.1.1.0.55]),"$..nsClientIPAddr.first()","N/A")}"'
               opdata: 'Daily total: {ITEM.LASTVALUE}'
@@ -2120,7 +2120,7 @@ zabbix_export:
               value: count
           triggers:
             - uuid: 8383e5b1944c4303a8528aa721f09bde
-              expression: 'change(/BB Citrix NetScaler ADC Traps by SNMP/snmptrap[rateLmtThresholdExceed.count])>=1'
+              expression: 'change(/Citrix NetScaler ADC Traps by SNMP/snmptrap[rateLmtThresholdExceed.count])>=1'
               name: 'NetScaler Client Rate Limit Exceeded'
               event_name: 'vServer {?jsonpath(last(//snmptrap[1.3.6.1.4.1.5951.1.1.0.77]),"$..stringComputed","N/A")} - Limit of {?jsonpath(last(//snmptrap[1.3.6.1.4.1.5951.1.1.0.77]),"$..platformLicensedThroughput","N/A")} Exceeded'
               opdata: 'Daily total: {ITEM.LASTVALUE}'
