@@ -79,10 +79,10 @@ Depending on the size of the environment, a Zabbix network discovery can help to
 | `{$NS.IF.ALIAS.NOT_MATCHES}`       | `CHANGE_IF_NEEDED` | Filters **out** network interface aliases that match this regex |
 | `{$NS.IF.DESCR.MATCHES}`           | `.*`               | Filters **only** network interface descriptions that match this regex |
 | `{$NS.IF.DESCR.NOT_MATCHES}`       | `CHANGE_IF_NEEDED` | Filters **out** network interface descriptions that match this regex |
-| `{$NS.IF.NAME.MATCHES}`            | `.*`               | Critical threshold for high CPU utilization percentage |
-| `{$NS.IF.NAME.NOT_MATCHES}`        | `(^Software Loopback Interface|^NULL[0-9.]*$|^[Ll]o[0-9.]\*$|^[Ss]ystem$|^Nu[0-9.]*$|^veth[0-9a-z]+$|docker[0-9]+|br-[a-z0-9]{12})` | Filters **out** network interface names that match this regex. Filters out loopbacks, nulls, docker veth links and docker0 bridge by default |
+| `{$NS.IF.NAME.MATCHES}`            | `.*`               | Filters **only** network interface names that match this regex |
+| `{$NS.IF.NAME.NOT_MATCHES}`        | `(^Software Loopback Interface\|^NULL[0-9.]*$\|^[Ll]o[0-9.]*$\|^[Ss]ystem$\|^Nu[0-9.]*$\|^veth[0-9a-z]+$\|docker[0-9]+\|br-[a-z0-9]{12})` | Filters **out** network interface names that match this regex. Filters out loopbacks, nulls, docker veth links and docker0 bridge by default |
 | `{$NS.IF.OPERSTATUS.MATCHES}`      | `.*`               | Filters **only** network interfaces with operational status that match this regex |
-| `{$NS.IF.OPERSTATUS.NOT_MATCHES}`  | `^6$`              | Filters **out** network interfaces with operational status that match this regex. Ignore status notPresent (6) by default |
+| `{$NS.IF.OPERSTATUS.NOT_MATCHES}`  | `^6$`              | Filters **out** network interfaces with operational status that match this regex. Ignore status `notPresent (6)` by default |
 | `{$NS.IF.TYPE.MATCHES}`            | `.*`               | Filters **only** network interface types that match this regex |
 | `{$NS.IF.TYPE.NOT_MATCHES}`        | `CHANGE_IF_NEEDED` | Filters **out** network interface types that match this regex |
 | `{$NS.IF.ERROR.WARN}`              | `10`               | Warning threshold of packet drops. Can be used with interface name as context |
