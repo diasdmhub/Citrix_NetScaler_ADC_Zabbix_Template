@@ -1625,39 +1625,51 @@ zabbix_export:
                 - tag: vServer
                   value: '{#NS.VSERVER.FULL.NAME}'
             - uuid: 4781033f451f44b89b7f95c4dec44e18
-              name: '{#NS.VSERVER.FULL.NAME} - vServer Request Rate in Bytes'
+              name: '{#NS.VSERVER.FULL.NAME} - vServer Request Rate in Bits'
               type: DEPENDENT
               key: 'netscaler.vserver.vsvrRxBytesRate[{#NS.VSERVER.FULL.NAME}]'
-              units: B/s
-              description: 'Request rate in bytes per second fot this service or virtual server'
+              units: bps
+              description: |
+                Request rate in bytes per second fot this service or virtual server
+                
+                Converted to bits per second
               preprocessing:
                 - type: SNMP_WALK_VALUE
                   parameters:
                     - '1.3.6.1.4.1.5951.4.1.3.1.1.44.{#SNMPINDEX}'
                     - '0'
+                - type: MULTIPLIER
+                  parameters:
+                    - '8'
               master_item:
                 key: 'netscaler.walk.vserver[requests]'
               tags:
                 - tag: vServer
-                  value: req_rate_bytes
+                  value: req_rate_bps
                 - tag: vServer
                   value: '{#NS.VSERVER.FULL.NAME}'
             - uuid: 60196062dd3f4604a65e5a66f7c6c3b5
-              name: '{#NS.VSERVER.FULL.NAME} - vServer Response Rate in Bytes'
+              name: '{#NS.VSERVER.FULL.NAME} - vServer Response Rate in Bits'
               type: DEPENDENT
               key: 'netscaler.vserver.vsvrTxBytesRate[{#NS.VSERVER.FULL.NAME}]'
-              units: B/s
-              description: 'Response rate in bytes per second for this service or virtual server'
+              units: bps
+              description: |
+                Response rate in bytes per second for this service or virtual server
+                
+                Converted to bits per second
               preprocessing:
                 - type: SNMP_WALK_VALUE
                   parameters:
                     - '1.3.6.1.4.1.5951.4.1.3.1.1.45.{#SNMPINDEX}'
                     - '0'
+                - type: MULTIPLIER
+                  parameters:
+                    - '8'
               master_item:
                 key: 'netscaler.walk.vserver[requests]'
               tags:
                 - tag: vServer
-                  value: resp_rate_bytes
+                  value: resp_rate_bps
                 - tag: vServer
                   value: '{#NS.VSERVER.FULL.NAME}'
           master_item:
