@@ -3,7 +3,7 @@
 <div align="right">
 
 [![License](https://img.shields.io/badge/License-GPL3-blue?logo=opensourceinitiative&logoColor=fff)][license]
-[![Version](https://img.shields.io/badge/Version-725-blue?logo=zotero&color=0aa8d2)][latest_release]
+[![Version](https://img.shields.io/badge/Version-726-blue?logo=zotero&color=0aa8d2)][latest_release]
 
 </div>
 
