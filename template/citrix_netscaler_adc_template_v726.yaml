@@ -1615,16 +1615,17 @@ zabbix_export:
                   value: '{#NS.VSERVER.FULL.NAME}'
               trigger_prototypes:
                 - uuid: e47a68abc1104e1fb4cf31ba88d45286
-                  expression: |
-                    trendstl(/Citrix NetScaler ADC by SNMP/netscaler.vserver.vsvrEstablishedConn[{#NS.VSERVER.FULL.NAME}],7d:now/h,1h,2h)>=3
-                    and
-                    last(/Citrix NetScaler ADC by SNMP/netscaler.vserver.vsvrEstablishedConn[{#NS.VSERVER.FULL.NAME}],#1)>10
+                  expression: 'baselinedev(/Citrix NetScaler ADC by SNMP/netscaler.vserver.vsvrEstablishedConn[{#NS.VSERVER.FULL.NAME}],1h:now/h,"w",4)>=4'
                   name: '{#NS.VSERVER.FULL.NAME} - vServer Connections Abnormal'
                   event_name: '{#NS.VSERVER.FULL.NAME} - Abnormal Rize in vServer Connections'
                   opdata: 'Current Connections: {ITEM.LASTVALUE}'
                   discover: NO_DISCOVER
                   priority: WARNING
-                  description: 'This trigger should indicate when the amount of recent connections has anomalies when compared to the last 7d hour baseline'
+                  description: |
+                    The trigger is true when the deviation score (how many standard deviations the value is from the baseline) is greater than or equal to 4
+                    
+                    Based on trend data, this trigger calculates the deviation of the recent connections (last 1h) from a baseline
+                    It is used to detect anomalous behavior wehn the recent connections deviate significantly from the normal pattern for that time of day and day of week
                   tags:
                     - tag: Cli_conn
                       value: abnormal

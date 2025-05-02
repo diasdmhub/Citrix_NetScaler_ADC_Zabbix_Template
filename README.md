@@ -250,11 +250,12 @@ Depending on the size of the environment, a Zabbix network discovery can help to
 
 #### ITEM PROTOTYPES
 
-| Name                                       | Description |
-| ------------------------------------------ | ----------- |
-| `{#NS.VSERVER.FULL.NAME}` - vServer Health | The percentage of UP services bound to this vServer |
-| `{#NS.VSERVER.FULL.NAME}` - vServer IP     | IP address of the vServer |
-| `{#NS.VSERVER.FULL.NAME}` - vServer State  | vServer state |
+| Name                                                     | Description |
+| -------------------------------------------------------- | ----------- |
+| `{#NS.VSERVER.FULL.NAME}` - vServer Health               | The percentage of UP services bound to this vServer |
+| `{#NS.VSERVER.FULL.NAME}` - vServer IP                   | IP address of the vServer |
+| `{#NS.VSERVER.FULL.NAME}` - vServer State                | vServer state |
+| `{#NS.VSERVER.FULL.NAME}` - vServer Total Bound Services | The current number of services which are bound to this vServer |
 
 <BR>
 
