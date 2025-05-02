@@ -20,7 +20,7 @@ zabbix_export:
         https://github.com/diasdmhub/Citrix_NetScaler_ADC_Zabbix_Template
       vendor:
         name: diasdm
-        version: 7.2.5
+        version: 7.2.6
       groups:
         - name: 'Templates/Network devices'
       items:
@@ -620,7 +620,7 @@ zabbix_export:
         - uuid: 971d24e44e44491fabbd5bed2c6b08c7
           name: 'NetScaler Walk vServer Health'
           type: SNMP_AGENT
-          snmp_oid: 'walk[1.3.6.1.4.1.5951.4.1.3.1.1.5,1.3.6.1.4.1.5951.4.1.3.1.1.59,1.3.6.1.4.1.5951.4.1.3.1.1.62,1.3.6.1.4.1.5951.4.1.3.1.1.2]'
+          snmp_oid: 'walk[1.3.6.1.4.1.5951.4.1.3.1.1.5,1.3.6.1.4.1.5951.4.1.3.1.1.59,1.3.6.1.4.1.5951.4.1.3.1.1.61,1.3.6.1.4.1.5951.4.1.3.1.1.62,1.3.6.1.4.1.5951.4.1.3.1.1.2]'
           key: 'netscaler.walk.vserver[health]'
           history: '0'
           value_type: TEXT
@@ -1537,23 +1537,45 @@ zabbix_export:
                   value: state
                 - tag: vServer
                   value: '{#NS.VSERVER.FULL.NAME}'
+            - uuid: c708379a14f44557a81afa7ad2538987
+              name: '{#NS.VSERVER.FULL.NAME} - vServer Total Bound Services'
+              type: DEPENDENT
+              key: 'netscaler.vserver.vsvrTotalServicesBound[{#NS.VSERVER.FULL.NAME}]'
+              history: 7d
+              trends: '0'
+              description: |
+                The current number of services which are bound to this vServer
+                
+                These services can be anything from web servers to application servers
+                It is a count of how many such services are currently linked or associated with the vServer
+                
+                This information is useful for monitoring and managing the load and performance of the virtual server
+              preprocessing:
+                - type: SNMP_WALK_VALUE
+                  parameters:
+                    - '1.3.6.1.4.1.5951.4.1.3.1.1.61.{#SNMPINDEX}'
+                    - '0'
+                - type: DISCARD_UNCHANGED_HEARTBEAT
+                  parameters:
+                    - 1d
+              master_item:
+                key: 'netscaler.walk.vserver[health]'
+              tags:
+                - tag: vServer
+                  value: services
+                - tag: vServer
+                  value: '{#NS.VSERVER.FULL.NAME}'
           master_item:
             key: 'netscaler.walk.vserver[health]'
           preprocessing:
             - type: SNMP_WALK_TO_JSON
               parameters:
-                - '{#NS.VSERVER.STATE}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.5
-                - '0'
                 - '{#NS.VSERVER.FULL.NAME}'
                 - 1.3.6.1.4.1.5951.4.1.3.1.1.59
                 - '0'
-                - '{#NS.VSERVER.HEALTH}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.62
-                - '0'
             - type: DISCARD_UNCHANGED_HEARTBEAT
               parameters:
-                - 1d
+                - 12h
         - uuid: b575f4564b9b4ee7aff547c435f548e8
           name: 'Discovery vServer Requests'
           type: DEPENDENT
@@ -1677,53 +1699,8 @@ zabbix_export:
           preprocessing:
             - type: SNMP_WALK_TO_JSON
               parameters:
-                - '{#NS.VSERVER.CONN.CLI}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.7
-                - '0'
-                - '{#NS.VSERVER.CONN.SRV}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.8
-                - '0'
-                - '{#NS.VSERVER.SVC.DOWN}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.37
-                - '0'
-                - '{#NS.VSERVER.SVC.UNKNOWN}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.38
-                - '0'
-                - '{#NS.VSERVER.SVC.OUTOFSVC}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.39
-                - '0'
-                - '{#NS.VSERVER.SVC.TROUTSVC}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.40
-                - '0'
-                - '{#NS.VSERVER.SVC.UP}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.41
-                - '0'
-                - '{#NS.VSERVER.REQ.RATE}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.43
-                - '0'
-                - '{#NS.VSERVER.BYTE.RXRATE}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.44
-                - '0'
-                - '{#NS.VSERVER.BYTE.TXRATE}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.45
-                - '0'
-                - '{#NS.VSERVER.SYN.FLOODRATE}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.46
-                - '0'
-                - '{#NS.VSERVER.TOTAL.CLIENTS}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.56
-                - '0'
                 - '{#NS.VSERVER.FULL.NAME}'
                 - 1.3.6.1.4.1.5951.4.1.3.1.1.59
-                - '0'
-                - '{#NS.VSERVER.HEALTH}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.62
-                - '0'
-                - '{#NS.VSERVER.TOTAL.SERVERS}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.65
-                - '0'
-                - '{#NS.VSERVER.CONN.STAB}'
-                - 1.3.6.1.4.1.5951.4.1.3.1.1.71
                 - '0'
             - type: DISCARD_UNCHANGED_HEARTBEAT
               parameters:
@@ -1917,7 +1894,7 @@ zabbix_export:
         https://github.com/diasdmhub/Citrix_NetScaler_Zabbix_Template
       vendor:
         name: diasdm
-        version: 7.2.5
+        version: 7.2.6
       groups:
         - name: 'Templates/Network devices'
       items:
