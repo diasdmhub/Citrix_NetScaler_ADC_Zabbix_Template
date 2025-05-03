@@ -278,7 +278,7 @@ Depending on the size of the environment, a Zabbix network discovery can help to
 
 | Name                                                     | Description |
 | -------------------------------------------------------- | ----------- |
-| `{#NS.VSERVER.FULL.NAME}` - vServer Connections Abnormal | (**Experimental - Set not to discover**) This trigger should indicate when the amount of recent connections has anomalies when compared to the last 7d hour baseline |
+| `{#NS.VSERVER.FULL.NAME}` - vServer Connections Abnormal | (**Experimental - Set not to discover**) The trigger is true when the recent connections are multiple standard deviations from the baseline |
 
 <BR>
 
